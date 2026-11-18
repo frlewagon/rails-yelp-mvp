@@ -1,0 +1,19 @@
+<%= "Detailed infos about #{@restaurant.name}" %>
+
+<div class="card" style="width: 36rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @restaurant.name %></h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary"><%="Category: #{@restaurant.category}" %></h6>
+    <p class="card-text"><%= "Address: #{@restaurant.address}" %></p>
+    <% @restaurant.reviews.each do |review| %>
+      <p class="card-text"><%= review.content %></p>
+      <p class="card-text"><%= "Rating: #{review.rating} /5" %></p>
+    <% end %>
+    <a href="#" class="card-link">website</a>
+    <a href="#" class="card-link">instagram</a>
+  </div>
+</div>
+
+<%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary mt-3"  %>
+
+<%= link_to "Back to the list", restaurants_path, class: "btn btn-primary mt-3"  %>
